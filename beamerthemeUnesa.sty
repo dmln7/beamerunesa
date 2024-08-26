@@ -1,0 +1,73 @@
+% Unesa presentation theme for beamer
+%
+% Dimas Maulana <dimasmaulana@unesa.ac.id>, 2023
+% 
+% Changelog:
+%
+% Version 1.0:
+%   First public version.
+
+\ProvidesPackage{beamerthemeUnesa}[2024/08/26]
+
+\usefonttheme[onlylarge]{structurebold}
+
+\pgfdeclareimage[width=\paperwidth, height=\paperheight]{cover}{cover}
+\pgfdeclareimage[width=\paperwidth]{content}{content}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{RussianViolet}{RGB}{32,21,71}
+\definecolor{Gold}{RGB}{216,174,71}
+\definecolor{SlateBlue}{RGB}{72,54,136}
+\definecolor{PastelGrey}{RGB}{203,203,203}
+\definecolor{White}{RGB}{255,255,255}
+
+
+\usecolortheme[named=RussianViolet]{structure}
+\setbeamercolor{item}{fg=SlateBlue}
+\setbeamercolor{title}{fg=Gold}
+\setbeamercolor{subtitle}{fg=Gold!50}
+\setbeamercolor{author}{fg=PastelGrey}
+\setbeamercolor{date}{fg=PastelGrey}
+\setbeamercolor{institute}{fg=PastelGrey}
+\setbeamercolor{block title}{fg=RussianViolet,bg=RussianViolet!15}
+\setbeamercolor{block body}{bg=Gold!15}
+\setbeamercolor{section in head/foot}{fg=RussianViolet}
+\setbeamercolor{separator}{fg=Gold}
+\setbeamercolor{page number in head/foot}{bg=RussianViolet!30!white,fg=RussianViolet}
+\setbeamercolor{footline}{bg=RussianViolet!30!white,fg=RussianViolet}
+\setbeamercolor{mini frame}{fg=RussianViolet}
+\setbeamertemplate{mini frame in other subsection}[default][40]
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner theme
+%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{pifont}
+\useinnertheme{rounded}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme
+%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{background canvas}{
+	\ifnum\c@framenumber=1%
+	\pgfuseimage{cover}
+	\else%
+	\pgfuseimage{content}
+	\fi%
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{title page}[default][left]
+\setbeamertemplate{headline}{%
+\vskip10pt\hskip40pt%
+\insertnavigation{.65\paperwidth}%
+}
+
+\setbeamertemplate{section in head/foot}{\insertsectionhead\space}
+
+\setbeamertemplate{footline}{%
+\hfill\raisebox{16pt}[0pt][0pt]{\usebeamercolor[White]{page number in head/foot}\insertframenumber/\inserttotalframenumber}\hspace*{5pt}\vskip1pt%
+}
